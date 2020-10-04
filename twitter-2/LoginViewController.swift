@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    
         if segue.identifier == "loginToHome"{
             let vc = segue.destination as! UINavigationController
             vc.modalPresentationStyle = .fullScreen
