@@ -11,14 +11,14 @@ class TweetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tweetTextView.becomeFirstResponder() //take text in and shows cursor
 
         // Do any additional setup after loading the view.
+        tweetTextView.becomeFirstResponder()
     }
     
     @IBOutlet weak var tweetTextView: UITextView!
+    
     @IBAction func cancel(_ sender: Any) {
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -28,14 +28,12 @@ class TweetViewController: UIViewController {
             TwitterAPICaller.client?.postTweet(tweetString: tweetTextView.text, success: {
                 self.dismiss(animated: true, completion: nil)
             }, failure: { (error) in
-                print("Error posting tweet\(error)")
+                print("Error posting tweet \(error)")
                 self.dismiss(animated: true, completion: nil)
             })
-        } else{
+        } else {
             self.dismiss(animated: true, completion: nil)
-            
         }
-        
     }
     
     /*
@@ -49,3 +47,27 @@ class TweetViewController: UIViewController {
     */
 
 }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+

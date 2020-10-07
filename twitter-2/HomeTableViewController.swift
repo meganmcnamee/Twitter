@@ -29,6 +29,16 @@ class HomeTableViewController: UITableViewController {
         self.loadTweets()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+
+        if segue.identifier == "tweet"{
+
+            let vc = segue.destination as! UINavigationController
+            vc.modalPresentationStyle = .fullScreen
+        }
+    }
+    
     @objc func loadTweets(){
         numberOfTweet = 20
         let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
@@ -75,11 +85,6 @@ class HomeTableViewController: UITableViewController {
             loadMoreTweets()
         }
     }
-    
-    
-    
-    
-    
     
     //Action for Logout Button
     @IBAction func onLogout(_ sender: Any) {
